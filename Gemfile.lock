@@ -248,6 +248,7 @@ DEPENDENCIES
   guard-minitest
   jbuilder (~> 2.0)
   jquery-rails
+  json
   mini_backtrace
   minitest-reporters
   omniauth

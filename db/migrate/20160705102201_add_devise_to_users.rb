@@ -1,6 +1,11 @@
 class AddDeviseToUsers < ActiveRecord::Migration
   def self.up
     change_table :users do |t|
+      add_column :users, :provider, :string
+      add_column :users, :access_token, :string
+      add_column :users, :oauth_token, :string
+      add_column :users, :oauth_expires_at, :datetime
+      add_column :users, :uid, :string
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
