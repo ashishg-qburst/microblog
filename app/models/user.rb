@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   # before_create :create_activation_token
   before_save { self.email = email.downcase }
 
-  validates :name, presence: true, length: { maximum: 50 }
-  validates :email, presence: true, length: { maximum: 255 },
+  # validates :name, presence: true, length: { maximum: 50 }
+  validates :email, presence: true, length: { maximum: 255 }
   validates :password, length: { minimum: 6 }, allow_blank: false
 
   def password_reset_expired?
@@ -71,7 +71,7 @@ class User < ActiveRecord::Base
       user.uid = auth.uid
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      user.save!
+      user.save
     end
   end
 
