@@ -1,8 +1,7 @@
 class User < ActiveRecord::Base
 
-  devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :trackable, :validatable,
-  :omniauthable, :omniauth_providers => [:google_oauth2]
+  devise :database_authenticatable, :omniauthable,
+    :omniauth_providers => [:google_oauth2]
 
   has_many :microposts, dependent: :destroy
 
